@@ -56,8 +56,26 @@ function submitFormulario(e) {
         mostrarAlerta('Ambos campos son obligatorios');
         return;
     }
+
+    //Consultar la API con los resultados
 }
 
 function mostrarAlerta(mensaje) {
-    console.log(mensaje);
+    const existeError = document.querySelector('.error');
+
+    if (!existeError) {
+      const divMensaje = document.createElement('div');
+    divMensaje.classList.add('error');
+
+    //mensaje de error
+    divMensaje.textContent = mensaje;
+
+    formulario.appendChild(divMensaje);
+
+    setTimeout(() => {
+        divMensaje.remove();
+    },3000)  
+    }
+    
+
 }
